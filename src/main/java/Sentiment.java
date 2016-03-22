@@ -23,7 +23,7 @@ import java.util.Properties;
 //
 // -------------------------------------------------------------------------------------
 
-public class sentiment {
+public class Sentiment {
     public static void main(String[] args) throws Exception {
 
         String text = "掌上生活闪退";
@@ -102,7 +102,7 @@ public class sentiment {
     public static String[] getPositveWords() throws IOException {
         String[] array = new String[5000];
         int i = 0;
-        File file = new File("main/resources/positive.txt");
+        File file = FileUtils.getFileFromResources("positive.txt");
         InputStreamReader isr = new InputStreamReader(new FileInputStream(file), "UTF-8");
         BufferedReader br = new BufferedReader(isr);
         String str = null;
@@ -119,7 +119,7 @@ public class sentiment {
     public static String[] getNagtiveWords() throws IOException {
         String[] array = new String[9000];
         int i = 0;
-        File file = new File("main/resources/negative.txt");
+        File file = FileUtils.getFileFromResources("negative.txt");
         InputStreamReader isr = new InputStreamReader(new FileInputStream(file), "UTF-8");
         BufferedReader br = new BufferedReader(isr);
         String str = null;
@@ -136,7 +136,7 @@ public class sentiment {
     public static String[] getOppositeWords() throws IOException {
         String[] array = new String[9000];
         int i = 0;
-        File file = new File("main/resources/opposite.txt");
+        File file = FileUtils.getFileFromResources("opposite.txt");
         InputStreamReader isr = new InputStreamReader(new FileInputStream(file), "UTF-8");
         BufferedReader br = new BufferedReader(isr);
         String str = null;
@@ -153,7 +153,7 @@ public class sentiment {
     public static String[] getDegree() throws IOException {
         String[] array = new String[9000];
         int i = 0;
-        File file = new File("main/resources/degree3.txt");
+        File file = FileUtils.getFileFromResources("degree3.txt");
         InputStreamReader isr = new InputStreamReader(new FileInputStream(file), "UTF-8");
         BufferedReader br = new BufferedReader(isr);
         String str = null;
@@ -232,7 +232,7 @@ public class sentiment {
 
     public static int sentimentScore(int sentiment, int wordDegree, int opposite) {
         int result = 0;
-//        System.out.println(sentiment + " " + wordDegree + " " + opposite);
+//        System.out.println(Sentiment + " " + wordDegree + " " + opposite);
         result = sentiment * wordDegree * opposite;
         return result;
     }
